@@ -5,10 +5,10 @@ function App() {
 
 
   return (
-    <>
+    <div className='container mx-auto'>
       <NavbarDefault></NavbarDefault>
       <TabsWithIcon />
-    </>
+    </div>
   )
 }
 
