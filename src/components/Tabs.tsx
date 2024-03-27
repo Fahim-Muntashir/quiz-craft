@@ -11,7 +11,6 @@ import {
     Cog6ToothIcon,
 } from "@heroicons/react/24/solid";
 import { QuizCard } from "./QuizCard";
-import { AddQuizForm } from "./AddQuiz";
 import { LocalStepper } from "./Stepper";
 
 export function TabsWithIcon() {
