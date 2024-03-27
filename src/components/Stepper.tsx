@@ -3,7 +3,16 @@ import { Stepper, Step, } from "@material-tailwind/react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { setActiveStepper } from '../redux/features/stepper/stepperSlice'
 
-export function LocalStepper() {
+
+type TStepperProps = {
+    steps: {
+        value: number,
+        name: string,
+        component: React.ReactNode;
+    }[]
+}
+
+export function LocalStepper({ steps }: TStepperProps) {
     const { activeStep } = useAppSelector((state) => state.stepper)
 
     const dispatch = useAppDispatch()
@@ -13,11 +22,16 @@ export function LocalStepper() {
             <Stepper placeholder={""}
                 activeStep={activeStep}
             >
-                <Step placeholder={""} onClick={() => dispatch(setActiveStepper(0))} className="px-8 w-fit">Quiz List</Step>
-                <Step className="px-8 w-fit" placeholder={""} onClick={() => dispatch(setActiveStepper(1))}>Add Quiz</Step>
 
+                {
+                    steps.map((step) => (
+                        <Step className="px-8 w-fit" placeholder={""} onClick={() => dispatch(setActiveStepper(step.value))}>{step.name}</Step>
+                    ))
+                }
             </Stepper>
-
+            <div>
+                {steps[activeStep].component}
+            </div>
         </div>
     );
 }

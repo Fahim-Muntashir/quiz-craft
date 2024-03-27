@@ -12,8 +12,22 @@ import {
 } from "@heroicons/react/24/solid";
 import { QuizCard } from "./QuizCard";
 import { LocalStepper } from "./Stepper";
+import { SelectModule } from "./SelectModule";
+import { AddQuizForm } from "./AddQuiz";
 
 export function TabsWithIcon() {
+    const steps = [
+        {
+            value: 0,
+            name: "Select Module",
+            component: <SelectModule></SelectModule>
+        },
+        {
+            value: 1,
+            name: "Add Quiz",
+            component: <AddQuizForm />
+        }
+    ]
     const data = [
         {
             label: "Quiz List",
@@ -28,7 +42,7 @@ export function TabsWithIcon() {
             label: "Add Quiz",
             value: "add-quiz",
             icon: Cog6ToothIcon,
-            desc: <LocalStepper></LocalStepper>,
+            desc: <QuizCard> <LocalStepper steps={steps}></LocalStepper>,</QuizCard>
         },
     ];
     return (
