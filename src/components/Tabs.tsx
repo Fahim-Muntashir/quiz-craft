@@ -20,7 +20,7 @@ export function TabsWithIcon() {
         {
             value: 0,
             name: "Select Module",
-            component: <SelectModule></SelectModule>
+            component: <div className="flex justify-center "><SelectModule></SelectModule></div>
         },
         {
             value: 1,
